@@ -1,0 +1,31 @@
+{
+  "name": "devkit-lite",
+  "version": "1.0.1",
+  "description": "Handy developer utilities: image generator, lorem text, colorful console",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format esm,cjs",
+    "dev": "tsup src/index.ts --watch"
+  },
+  "keywords": [
+    "typescript",
+    "console",
+    "lorem",
+    "image",
+    "utils"
+  ],
+  "author": "Saurav Pandey",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "devkit-lite": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/chalk": "^0.4.31",
+    "@types/node": "^24.10.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  }
+}
