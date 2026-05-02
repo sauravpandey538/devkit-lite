@@ -1,0 +1,58 @@
+/*
+ * Skeleton: shared pulse. Override --sk-base on :root or .dark to match your UI.
+ *
+ * - .sk-primitive — shadcn-style blocks (in document flow; use Tailwind h/w/rounded-*)
+ * - .sk-bone — auto-generated overlays over measured children (position: absolute)
+ */
+@keyframes sk-pulse {
+  0%,
+  100% {
+    opacity: var(--sk-opacity-low, 0.72);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+:root {
+  --sk-base: hsl(218 11% 68%);
+  --sk-opacity-low: 0.62;
+  /* Default corner radius (Tailwind rounded-lg); override per app if needed */
+  --sk-radius-lg: 0.5rem;
+}
+
+.dark {
+  --sk-base: hsl(218 12% 42%);
+  --sk-opacity-low: 0.52;
+}
+
+.sk-primitive,
+.sk-bone {
+  background-color: var(--sk-base);
+  animation: sk-pulse 1.5s ease-in-out infinite;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 0;
+  outline: none;
+}
+
+/* Flow layout: compose with className e.g. h-12 w-12 rounded-full (like shadcn/ui) */
+.sk-primitive {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  border-radius: var(--sk-radius-lg);
+}
+
+/* Mirrors measured child geometry inside a relative wrapper */
+.sk-bone {
+  position: absolute;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-primitive,
+  .sk-bone {
+    animation: none;
+    opacity: 0.85;
+  }
+}

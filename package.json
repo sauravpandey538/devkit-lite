@@ -1,10 +1,20 @@
 {
   "name": "devkit-lite",
   "version": "1.0.3",
-  "description": "Handy developer utilities: image generator, lorem text, colorful console",
-  "main": "dist/index.js",
+  "description": "Developer utilities: lorem, placeholder images, console styling, Skeleton, ScreenCat",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./style.css": "./dist/index.css"
+  },
+  "sideEffects": ["**/*.css"],
   "repository": {
     "type": "git",
     "url": "https://github.com/sauravpandey538/devkit-lite"
@@ -18,17 +28,23 @@
     "console",
     "lorem",
     "image",
-    "utils"
+    "utils",
+    "screen-cat",
+    "skeleton"
   ],
   "author": "Saurav Pandey",
   "license": "MIT",
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
   "dependencies": {
-    "chalk": "^4.1.2",
-    "devkit-lite": "^1.0.0"
+    "chalk": "^4.1.2"
   },
   "devDependencies": {
     "@types/chalk": "^0.4.31",
     "@types/node": "^24.10.0",
+    "@types/react": "^19.2.14",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3"
   }
